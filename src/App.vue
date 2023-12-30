@@ -6,7 +6,7 @@ const year = now.getFullYear();
 const month = now.getMonth();
 const date = now.getDate();
 const selectedyear = ref<number>(year);
-const selectedmonth = ref<number>(month);
+const selectedmonth = ref<number>(month+1);
 const selecteddate = ref<number>(date);
 </script>
 
@@ -14,7 +14,7 @@ const selecteddate = ref<number>(date);
   <buttonsList :begin="year-2" :end="year+3" :current="year" @update="(n) => selectedyear = n" />
   <buttonsList :begin="1" :end="13" :current="month+1" @update="(n) => selectedmonth = n" />
   <buttonsList :begin="1" :end="32" :current="date" @update="(n) => selecteddate = n" />
-  {{ selectedyear }}-{{ selectedmonth+1 }}-{{ selecteddate }}
+  {{ selectedyear }}-{{ selectedmonth }}-{{ selecteddate }}
 </template>
 
 <style scoped>
