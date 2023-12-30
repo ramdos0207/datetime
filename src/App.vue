@@ -11,9 +11,9 @@ const selecteddate = ref<number>(date);
 </script>
 
 <template>
-  <buttonsList :begin="year-2" :end="year+3" :current="year" @update="(n) => selectedyear = n" />
-  <buttonsList :begin="1" :end="13" :current="month+1" @update="(n) => selectedmonth = n" />
-  <buttonsList :begin="1" :end="32" :current="date" @update="(n) => selecteddate = n" />
+  <buttonsList :begin="year-2" :end="year+2" :current="year" @update="(n) => selectedyear = n" />
+  <buttonsList :begin="1" :end="12" :current="month+1" @update="(n) => selectedmonth = n" />
+  <buttonsList :begin="1" :end="31" :current="date" @update="(n) => selecteddate = n" />
   {{ selectedyear }}-{{ selectedmonth }}-{{ selecteddate }}
 </template>
 

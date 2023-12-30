@@ -6,7 +6,7 @@ const props = defineProps<{
   current: number
 }>();
 const current = ref(props.current);
-const arr = [...Array(props.end-props.begin)].map((_, i) => i+props.begin) //=> [ 0, 1, 2, 3, 4 ]
+const arr = [...Array(props.end-props.begin+1)].map((_, i) => i+props.begin) //=> [ 0, 1, 2, 3, 4 ]
 </script>
 
 <template>
