@@ -1,47 +1,21 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue';
+import buttonsList from './components/buttonsList.vue';
+const now = new Date();
+const year = now.getFullYear();
+const month = now.getMonth();
+const date = now.getDate();
+const selectedyear = ref<number>(year);
+const selectedmonth = ref<number>(month);
+const selecteddate = ref<number>(date);
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <buttonsList :begin="year-2" :end="year+3" :current="year" @update="(n) => selectedyear = n" />
+  <buttonsList :begin="1" :end="13" :current="month+1" @update="(n) => selectedmonth = n" />
+  <buttonsList :begin="1" :end="32" :current="date" @update="(n) => selecteddate = n" />
+  {{ selectedyear }}-{{ selectedmonth+1 }}-{{ selecteddate }}
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
